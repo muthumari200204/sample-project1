@@ -1,0 +1,68 @@
+
+
+
+
+
+function displayStats() {
+    const input = document.getElementById("input");
+    const city = input.options[input.selectedIndex].value;
+    let population = 0, literacyRate = 0, language = '', imgSrc = '';
+
+    switch(city) {
+        case 'Bengaluru':
+            population = 8443675;
+            literacyRate = 88.71;
+            language = 'Kannada';
+            imgSrc = 'b2.jpg';
+            break;
+        case 'Chennai':
+            population = 4646732;
+            literacyRate = 90.20;
+            language = 'Tamil';
+            imgSrc = 'c2.jpg';
+            break;
+        case 'Mumbai':
+            population = 12442373;
+            literacyRate = 89.73;
+            language = 'Marathi';
+            imgSrc = 'mumbai2.jpg';
+            break;
+        case 'Delhi':
+            population = 16787941;
+            literacyRate = 86.20;
+            language = 'Hindi';
+            imgSrc = 'd3.jpg';
+            break;
+        case 'Madurai':
+            population = 1872000;
+            literacyRate = 83.50;
+            language = 'Tamil';
+            imgSrc = 'm1.jpg';
+            break;
+         case 'Salem':
+            population = 829267;
+            literacyRate = 84.42;
+            language = 'Tamil';
+            imgSrc = 's4.jpg';
+            break;
+            
+        default:
+            population = 0;
+            literacyRate = 0;
+            language = 'Unknown';
+            imgSrc = '';
+            break;
+    }
+
+   const text = `The Indian city of ${city} has a population of ${population}. The language spoken is ${language} and the literacy rate is ${literacyRate}%.`;
+     console.log(text);
+
+    
+     const resultDiv = document.getElementById('result');     resultDiv.innerHTML = text;
+    // / Create and append the image   
+     const img = document.createElement('img');
+    img.src = imgSrc;
+    img.alt = `${city} image`;
+     img.style.maxWidth = '100%';  
+     resultDiv.appendChild(img);
+ }
